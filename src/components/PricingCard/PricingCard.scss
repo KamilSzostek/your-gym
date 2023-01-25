@@ -1,0 +1,118 @@
+.price-card {
+    position: relative;
+    margin-block: 2em;
+    height: 650px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    z-index: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #003049 linear-gradient(to left,
+                rgba(255, 255, 255, 0.6),
+                #003049 30%,
+                #003049 70%,
+                rgba(255, 255, 255, 0.6),
+            );
+        opacity: .6;
+        z-index: -1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        transition: filter .5s;
+        z-index: -2;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+        margin-top: 2em;
+        filter: drop-shadow(0 0 7px var(--white-color));
+    }
+
+    h4 {
+        margin-bottom: .5em;
+        color: var(--white-color);
+        font-size: 4rem;
+        text-transform: capitalize;
+        opacity: .9;
+    }
+
+    &__text {
+        padding-block: .5em;
+        font-size: 2rem;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+
+        h5 {
+            color: var(--white-color);
+            font-size: 3.5rem;
+        }
+
+        span {
+            display: block;
+
+            span {
+                display: inline;
+                color: var(--white-color);
+            }
+        }
+    }
+
+    &__text:nth-last-child(1) {
+        border-bottom: none;
+    }
+}
+
+.price-card:nth-child(1) {
+    &::after {
+        background-image: url('../../assets/offer/pricing-cards/menwomen.jpeg');
+    }
+}
+
+.price-card:nth-child(2) {
+    &::after {
+        background-image: url('../../assets/offer/pricing-cards/student.jpeg');
+    }
+}
+
+.price-card:nth-child(3) {
+    &::after{
+        background-image: url('../../assets/offer/pricing-cards/senior.jpg');
+    }
+}
+
+@media (min-width: 992px) {
+    .price-card {
+        min-width: 300px;
+        border-radius: 2em;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        transition: transform .5s;
+        cursor: default;
+
+        &:hover {
+            transform: scale(1.05);
+            &::after{
+                filter: blur(5px);
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .price-card {
+        min-width: 350px;
+    }
+}

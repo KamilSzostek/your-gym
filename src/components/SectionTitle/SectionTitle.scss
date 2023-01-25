@@ -1,0 +1,21 @@
+.section-title {
+    position: relative;
+    width: fit-content;
+    padding-left: .25em;
+    padding-bottom: .25em;
+    font-size: clamp(3rem, 1rem + 4vw, 5rem);
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 5px;
+        background-color: var(--first-color);
+    }
+}
+
+.section-title::first-letter {
+    text-transform: uppercase;
+}

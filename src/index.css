@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.336);
+}
+
+
+:root {
+  --white-color: #fff;
+  --black-color: #333;
+  --first-color: #003049;
+  --second-color: #fcbf49;
+  --third-color: #eae2b7;
+  font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  font-size: 10px;
+  font-family: "Lato", sans-serif;
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Zen Dots', sans-serif;
+}

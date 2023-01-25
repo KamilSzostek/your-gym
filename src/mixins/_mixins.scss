@@ -1,0 +1,27 @@
+@mixin title-2 {
+  margin-inline: auto;
+  margin-bottom: 1em;
+  padding-inline: 0.5em;
+  width: fit-content;
+  font-size: 4rem;
+  text-align: center;
+  border-bottom: 5px solid var(--first-color);
+}
+
+@mixin bg-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: blur(20px);
+}

@@ -1,0 +1,119 @@
+@import '../../../../mixins/mixins';
+
+.offer__card {
+    position: relative;
+    display: flex;
+    align-items: end;
+    min-width: 100vw;
+    height: 400px;
+    color: var(--white-color);
+    transition: transform 1s;
+    transform-origin: left;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2em;
+    overflow: hidden;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+
+    &__content {
+        width: 100%;
+        height: 45%;
+        padding: 1em;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+        font-size: 1.2rem;
+        text-align: center;
+
+        h3 {
+            margin-bottom: 1em;
+            font-size: clamp(1.7rem, 2.5vw, 3rem);
+        }
+
+        p {
+            padding-inline: 1em;
+            text-align: left;
+            font-size: clamp(1.3rem, 2vw, 2rem);
+            opacity: .8;
+        }
+    }
+
+}
+
+.offer__card:nth-last-child(1) {
+    background-image: url('../../../../assets/offer/offert-card-2.jpg');
+}
+
+.offer__card:nth-last-child(2) {
+    background-image: url('../../../../assets/offer/offert-card-1.jpg');
+}
+
+.offer__card:nth-last-child(3) {
+    background-image: url('../../../../assets/offer/offert-card-3.jpg');
+}
+
+
+@media (min-width: 768px) {
+    .offer__card {
+        height: 500px;
+    }
+}
+
+@media (min-width: 992px) {
+    .offer__card {
+        position: absolute;
+        min-width: auto;
+        height: auto;
+    }
+
+    .offer__card:nth-last-child(1) {
+        top: 33%;
+        bottom: -5%;
+        left: 0;
+        right: 50%;
+        background-size: 100% 70%;
+        background-position: bottom;
+
+        .offer__card__content {
+            h3 {
+                margin-bottom: .25em;
+            }
+
+            p {
+                margin-left: 1em;
+                margin-bottom: 1em;
+            }
+        }
+
+    }
+
+    .offer__card:nth-last-child(2) {
+        top: 20%;
+        bottom: 30%;
+        left: 40%;
+        right: 0;
+        background-position: center 30%;
+        overflow: visible;
+
+        .offer__card__content {
+            background: none;
+            margin-left: 20%;
+            color: black;
+            transform: translateY(100%);
+        }
+    }
+
+    .offer__card:nth-last-child(3) {
+        top: 0;
+        bottom: 43%;
+        left: 0;
+        right: 45%;
+        z-index: 3;
+    }
+}
+
+@media (min-width: 1400px) {
+    .offer__card:nth-last-child(3) {
+        left: -10%;
+    }
+}

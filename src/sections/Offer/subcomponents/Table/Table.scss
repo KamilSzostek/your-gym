@@ -1,0 +1,43 @@
+.offer__table {
+    width: 100%;
+    color: var(--white-color);
+    font-size: clamp(1.2rem, 1.5vw, 1.7rem);
+
+    thead {
+        tr {
+            font-size: clamp(1.5rem, 2vw, 1.9rem);
+
+            th:nth-child(1) {
+                background: var(--first-color);
+                box-shadow: none;
+            }
+
+            th {
+                background: var(--white-color);
+                text-align: center;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-top: 1px solid var(--white-color);
+
+            td:nth-child(1) {
+                font-size: clamp(1.5rem, 2vw, 1.9rem);
+            }
+
+            td {
+                padding: .25em;
+            }
+        }
+    }
+
+    td:nth-child(1) {
+        border-left: none;
+    }
+
+    td {
+        border-left: 1px solid var(--white-color);
+    }
+}

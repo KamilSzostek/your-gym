@@ -1,0 +1,36 @@
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 4rem;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0 1px black) drop-shadow(0 0 1px black);
+    z-index: 2;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--white-color);
+        z-index: 15;
+    }
+
+    &:hover {
+        opacity: 0.95;
+    }
+}
+
+#next {
+    right: 1%;
+}
+
+#prev {
+    left: 1%;
+}
+
+
+

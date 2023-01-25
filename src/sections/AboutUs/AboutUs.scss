@@ -1,0 +1,89 @@
+@import '../../mixins/mixins';
+
+.aboutus {
+  padding-top: 5em;
+
+  &__intro {
+    article {
+      position: relative;
+
+      &::before {
+        content: '';
+        @include bg-cover;
+        background-image: url('../../assets/about-us/meditation.png');
+        background-size: 100% 100%;
+        opacity: .1;
+      }
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .move-up {
+    transform: translateY(-15%);
+    opacity: .9;
+  }
+}
+
+@media (min-width: 768px) {
+  .aboutus {
+    &__cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background-color: #eae2b710;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .aboutus {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__intro {
+      width: 30%;
+      border-left: 5px solid var(--first-color);
+      order: 1;
+    }
+
+    &__cards {
+      position: relative;
+      padding-top: 10em;
+      margin-bottom: 5em;
+      order: 2;
+      overflow: hidden;
+
+      &::before{
+        content: '';
+        @include bg-cover;
+        top: 20%;
+        bottom: -100%;
+        border-radius: 50%;
+        background: #f0f0f1
+        linear-gradient(to top,
+        #0a388d2a,
+        rgba(255, 255, 255, 0.9));
+        transform: translateY(-10%);
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .aboutus {
+    margin-inline: 5vw;
+
+    &__intro {
+      article {
+        padding-block: 5em
+      }
+    }
+  }
+}

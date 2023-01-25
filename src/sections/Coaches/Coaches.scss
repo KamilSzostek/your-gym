@@ -1,0 +1,26 @@
+.coaches {
+  margin-top: 10em;
+  margin-bottom: 5em;
+  overflow: hidden;
+
+  &__container {
+    position: relative;
+    margin-top: 2em;
+    margin-inline: -5em;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 20px black;
+    display: flex;
+    align-items: center;
+    height: 500px;
+    gap: 50px;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .coaches {
+    &__container {
+      height: 600px;
+    }
+  }
+}

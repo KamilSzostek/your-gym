@@ -1,0 +1,143 @@
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    height: 100%;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--white-color);
+    font-family: 'Zen Dots', sans-serif;
+    text-transform: capitalize;
+    z-index: 1;
+
+    &__first,
+    &__second {
+        font-size: 4rem;
+    }
+
+    &__second {
+        display: flex;
+        gap: 155px;
+        width: 150px;
+        overflow: hidden;
+
+        span {
+            width: inherit;
+            transform: translateX(-100%);
+            animation: horizontal-changer 15s linear infinite;
+        }
+    }
+
+    &__changer {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        height: 70px;
+        background: none;
+        border-top: 2px solid var(--white-color);
+        color: var(--white-color);
+        font-size: 4.5rem;
+        -webkit-text-stroke: none;
+        text-transform: uppercase;
+        overflow: hidden;
+
+        span {
+            text-align: center;
+            transform: translateY(200%);
+            animation: vertical-changer 15s linear infinite;
+        }
+    }
+}
+
+
+@media (min-width: 768px) {
+    .text {
+
+        &__first,
+        &__second {
+            font-size: 7rem;
+        }
+
+        &__second {
+            width: 250px;
+            gap: 260px;
+        }
+
+        &__changer {
+            font-size: 10rem;
+            height: 150px;
+        }
+    }
+}
+
+
+// @media (min-width: 992px) {
+//     .text {
+//         &__second {
+//             width: 250px;
+//             gap: 260px;
+//         }
+//     }
+// }
+
+
+@keyframes vertical-changer {
+    2% {
+        transform: translateY(0);
+    }
+
+    18% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-100%);
+    }
+
+    38% {
+        transform: translateY(-100%);
+    }
+
+    40% {
+        transform: translateY(-200%);
+    }
+
+    58% {
+        transform: translateY(-200%);
+    }
+
+    60% {
+        transform: translateY(-300%);
+    }
+
+    78% {
+        transform: translateY(-300%);
+    }
+
+    80% {
+        transform: translateY(-400%);
+    }
+
+    100% {
+        transform: translateY(-400%);
+    }
+}
+
+@keyframes horizontal-changer {
+    2% {
+        transform: translateX(0);
+    }
+
+    78% {
+        transform: translateX(0);
+    }
+
+    80% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
