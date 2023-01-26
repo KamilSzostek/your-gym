@@ -1,0 +1,50 @@
+.reservation-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: rgba(250, 250, 250, 0.4);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+
+    a {
+        position: relative;
+        margin-right: 5%;
+        color: var(--white-color);
+        font-size: clamp(1.7rem, 1.8vw, 2rem);
+        font-family: 'Zen Dots', sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color .5s;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: black;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .5s
+        }
+
+        &:hover {
+            color: black;
+
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+    img{
+        height: 60px;
+        margin-left: 5%;
+        padding-block: .5em;
+    }
+}

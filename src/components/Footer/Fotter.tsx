@@ -34,14 +34,12 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
         </div>
         <div className="footer__content__containers">
           <DataContainer
-            classes="footer__content__container"
             title="Regulaminy"
             firstLine="Regulamin szatnii"
             secondLine="Regulamin korzystania z sauny"
             thirdLine="Regulamin karty członkowskiej"
           />
           <DataContainer
-            classes="footer__content__container"
             title="Informacje"
             firstLine="Informacja dot. zachowania bezpieczeństwa na schodach"
             secondLine="Informacja dot. zachowania bezpieczeństwa na schodach"

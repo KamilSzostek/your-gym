@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import "./Navigation.scss";
 

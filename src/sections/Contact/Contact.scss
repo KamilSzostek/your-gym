@@ -1,0 +1,222 @@
+@import '../../mixins/mixins';
+
+.contact {
+    position: relative;
+    padding-top: 4em;
+    padding-inline: 1em;
+
+    &::before {
+        content: '';
+        @include bg-cover;
+        background-color: #003049;
+        top: 35%;
+        z-index: -1;
+    }
+
+    &__content {
+        &__container {
+            .data-container {
+                margin-left: 0;
+                font-size: clamp(2rem, 2.1vw, 2.5rem);
+            }
+
+            h5 {
+                font-family: 'Zen Dots', sans-serif;
+                font-size: clamp(2.3rem, 2.4vw, 2.5rem);
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                margin-block: 5em;
+                font-size: clamp(1.8rem, 2vw, 2rem);
+                color: var(--white-color);
+
+                label {
+                    opacity: 0;
+                    transition: 1s;
+                }
+
+                input {
+                    margin-bottom: .5em;
+                    padding: .25em .5em;
+
+                    &:focus {
+                        background-color: rgb(235, 245, 245);
+                    }
+                }
+
+                textarea {
+                    height: fit-content;
+                    margin-top: .5em;
+                    margin-bottom: 1em;
+                    padding: .25em .5em;
+
+                    &:focus {
+                        background-color: rgb(235, 245, 245);
+                    }
+                }
+
+                button {
+                    padding-block: .5em;
+                    background-color: rgba(255, 255, 255, 0.699);
+                    border: 1px solid var(--white-color);
+                    border-radius: .5em;
+                    font-size: clamp(2.1rem, 2.5vw, 2.6rem);
+                    font-family: 'Zen Dots', sans-serif;
+                    transition: .5s;
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .show-label {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .contact {
+        margin-top: -5em;
+        border-left: 5px solid var(--first-color);
+        border-right: 5px solid var(--first-color);
+
+        .section-title {
+            margin-inline: auto;
+
+            span {
+                color: var(--white-color);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 60%;
+                    right: 0;
+                    height: 5px;
+                    background-color: #fff;
+                }
+            }
+        }
+
+        &::before {
+            content: '';
+            @include bg-cover;
+            top: 0;
+            left: 53%;
+            background: #002f49a1;
+            border-left: 5px solid var(--first-color);
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            @include bg-cover;
+            background-image: url('../../assets/contact/contact-bg-small.jpg');
+            background-size: 100% 100%;
+            top: 0;
+            left: 53%;
+            z-index: -2;
+        }
+
+        &__content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 45%;
+                left: 0;
+                right: 50%;
+                height: 3px;
+                background-color: var(--first-color);
+                z-index: -1;
+            }
+
+            &__container {
+                form {
+                    color: black;
+
+                    input {
+                        border: 2px solid rgb(200, 200, 200);
+                        width: 100%;
+                    }
+
+                    textarea {
+                        border: 2px solid rgb(200, 200, 200);
+                        width: 100%;
+                    }
+
+                    button {
+                        border: 2px solid var(--first-color);
+                    }
+                }
+
+            }
+
+            &__map {
+                border: 2px solid var(--first-color);
+                box-shadow: 0 0 10px var(--first-color);
+
+                .map {
+                    width: 400px;
+                    height: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .contact {
+        .section-title {
+            position: absolute;
+            left: 53%;
+            transform: translateX(-60%);
+        }
+
+        &::after {
+            background-image: url('../../assets/contact/contact-bg-large.jpg');
+        }
+
+        &__content {
+            gap: 100px;
+
+            &::before {
+                display: none;
+            }
+
+            &__container {
+                form {
+                    width: 35vw;
+                    button:hover {
+                        color: var(--white-color);
+                        background-color: var(--first-color);
+                    }
+                }
+
+            }
+
+            &__map {
+                .map {
+                    width: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .contact {
+        padding-inline: 10vw;
+    }
+}

@@ -1,39 +1,51 @@
 import React, { useId } from "react";
-import { useLocation } from "react-router";
 import CoachCard from "../../components/CoachCard/CoachCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { coaches } from "../../utilities/coaches";
+import { coaches, ICoach } from "../../utilities/coaches";
 import "./Coaches.scss";
 
-const Coaches: React.FunctionComponent = () => {
-  const location = useLocation();
-  const coachesFilterd = location.state 
-  ? coaches.filter((coach) => coach.id !== location.state.id)
-  : coaches;
-  const coachesElement = coachesFilterd.map(coach => (
-    <CoachCard
-      key={useId()}
-      id={coach.id}
-      name={coach.name}
-      img={coach.image}
-      icon={coach.icon}
-      type={coach.type}
-      description={coach.description}
-    />
-  ))
+interface ICoachesProps {
+  coachesFiltered?: ICoach[];
+}
+
+const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) => {
+
+  const coachesElement = coachesFiltered
+    ? (coachesFiltered?.map(coach => (
+      <CoachCard
+        key={useId()}
+        id={coach.id}
+        name={coach.name}
+        img={coach.image}
+        icon={coach.icon}
+        type={coach.type}
+        description={coach.description}
+      />)))
+    : (coaches?.map(coach => (
+      <CoachCard
+        key={useId()}
+        id={coach.id}
+        name={coach.name}
+        img={coach.image}
+        icon={coach.icon}
+        type={coach.type}
+        description={coach.description}
+      />)))
 
   const options = {
     loop: true,
     center: true,
     margin: 100,
     autoplay: true,
-    autoplayTimeout: 5000,
-    smartSpeed: 350,
+    autoplayTimeout: 2000,
+    smartSpeed: 2000,
     nav: false,
     dotsEach: true,
+    autoplayHoverPause: true,
+    fluidSpeed: true,
     responsive: {
       0: {
         items: 1

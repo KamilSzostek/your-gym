@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { Types } from '../../utilities/types';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
@@ -9,21 +9,31 @@ import JogaBg from '../../assets/reservation/joga-room-large.jpeg'
 import TypeInfo from './subcomponents/TypeInfo/TypeInfo';
 import Coaches from '../../sections/Coaches/Coaches';
 import ReservationTable from './subcomponents/ReservationTable/ReservationTable';
+import { coaches } from "../../utilities/coaches";
 import './Reservation.scss';
 
 
+const days = ["", "Pn", "Wt", "Śr", "Czw", "Pt"];
+const hours = [
+    ["17:00-18:00", "Rezerwuj", "", "", "Rezerwuj", ""],
+    ["18:00-19:00", "", "Rezerwuj", "", "Rezerwuj", ""],
+    ["19:00-20:00", "", "", "", "Rezerwuj", "Rezerwuj"],
+];
+
 
 const App: React.FunctionComponent = () => {
+    const [idState, setIdState] = useState(0);
 
-    const days = ["", "Pn", "Wt", "Śr", "Czw", "Pt"];
-    const hours = [
-        ["17:00-18:00", "Rezerwuj", "", "", "Rezerwuj", ""],
-        ["18:00-19:00", "", "Rezerwuj", "", "Rezerwuj", ""],
-        ["19:00-20:00", "", "", "", "Rezerwuj", "Rezerwuj"],
-    ];
     const sectionRef = useRef<HTMLElement>(null);
     const location = useLocation();
     const { id, name, img, icon, type } = location.state;
+    
+    let coachesFiltered = coaches.filter(coach => coach.id !== id);
+
+    useLayoutEffect(() => {
+        setIdState(id)
+        coachesFiltered = coaches.filter(coach => coach.id !== idState);
+    }, [id])
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0);
@@ -60,7 +70,7 @@ const App: React.FunctionComponent = () => {
                     tbody={hours}
                 />
             </section>
-            <Coaches />
+            <Coaches coachesFiltered={coachesFiltered}/>
         </div>
     );
 };

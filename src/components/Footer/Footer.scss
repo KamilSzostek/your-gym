@@ -68,25 +68,7 @@
     padding-inline: 1em;
     padding-top: 1em;
 
-    &__container {
-      max-width: 300px;
-      margin-top: 3em;
-      margin-left: auto;
-      padding-left: 0.5em;
-      border-left: 5px solid #c6b4b4;
-      font-size: 1.2rem;
-      h5 {
-        font-size: 1.5rem;
-      }
-      p {
-        color: #c6b4b4;
-        cursor: pointer;
-      }
 
-      p:hover {
-        text-decoration: underline;
-      }
-    }
     &__brand {
       display: flex;
       flex-direction: column;

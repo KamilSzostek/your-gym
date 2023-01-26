@@ -1,7 +1,7 @@
 import React from "react";
+import './DataContainer.scss';
 
 interface IDataContainerProps {
-  classes: string;
   title: string;
   firstLine: string;
   secondLine: string;
@@ -9,14 +9,13 @@ interface IDataContainerProps {
 }
 
 const DataContainer: React.FunctionComponent<IDataContainerProps> = ({
-  classes,
   title,
   firstLine,
   secondLine,
   thirdLine,
 }) => {
   return (
-    <div className={classes}>
+    <div className='data-container'>
       <h5>{title}</h5>
       <p>{firstLine}</p>
       <p>{secondLine}</p>

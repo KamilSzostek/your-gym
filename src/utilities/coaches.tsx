@@ -1,4 +1,3 @@
-import { generateId } from './generateId';
 import Bodybuilding from '../assets/coaches/powerlifting-icon.png';
 import Zumba from '../assets/coaches/zumba-icon.png';
 import Boxing from '../assets/coaches/boxing-icon.png';
@@ -9,6 +8,15 @@ import Coach3 from '../assets/coaches/marcus.jpg';
 import Coach4 from '../assets/coaches/kler.jpg';
 import Coach5 from '../assets/coaches/john.jpg';
 import Coach6 from '../assets/coaches/dave.jpg';
+
+export interface ICoach{
+    id: number;
+    name: string;
+    image: string;
+    icon: string;
+    type: string;
+    description: string;
+}
 
 export const coaches = [
     {
