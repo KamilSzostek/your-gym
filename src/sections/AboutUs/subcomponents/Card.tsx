@@ -25,18 +25,14 @@ const Card: React.FunctionComponent<ICardProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    const cards = cardRef.current?.parentElement!;
-    const cardsArr = cards.querySelectorAll('.card')
-    const aboutUsSection = cards.parentElement!;
+    const card = cardRef.current!;
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (!entry.isIntersecting) {
-        for (const card of cardsArr) {
-          card.classList.remove("move-up");
-        }
+        card.classList.remove("move-up");
       }
     });
-    observer.observe(aboutUsSection);
+    observer.observe(card);
   }, []);
 
   return (

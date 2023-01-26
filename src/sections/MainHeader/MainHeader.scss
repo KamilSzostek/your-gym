@@ -1,48 +1,99 @@
 .main-header {
-    position: relative;
-    height: 100vh;
-    text-align: center;
-    z-index: 0;
-  
-    &::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-image: url('../../assets/header/start-page-small.jpg');
-      background-size: cover;
-      background-position: 50%;
-      filter: brightness(70%);
-      z-index: -1;
-  
-    }
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: url('../../assets/header/start-page-small.jpg');
+    background-size: cover;
+    background-position: 50%;
+    filter: brightness(70%);
+    z-index: -1;
+    animation: background-changer 15s linear infinite;
+
+  }
+
+  img {
+    width: 125px;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-header {
     img {
-      width: 125px;
+      display: block;
+      margin-left: 2em;
+      padding-top: 2em;
     }
+  }
+}
+
+@media (min-width: 992px) {
+  .main-header {
+    &::before {
+      background-size: 100% 100%;
+      background-image: url('../../assets/header/power.jpg');
+      filter: brightness(70%);
+
+    }
+
+    img {
+      position: absolute;
+      width: 150px;
+      margin-left: 5em;
+      padding-top: 2em;
+    }
+  }
+}
+
+@keyframes background-changer {
+  2% {
+    background-image: url('../../assets/header/power.jpg');
+  }
+
+  18% {
+    background-image: url('../../assets/header/power.jpg');
+  }
+
+  20% {
+    background-image: url('../../assets/header/speed.jpg');
+  }
+
+  38% {
+    background-image: url('../../assets/header/speed.jpg');
+  }
+
+  40% {
+    background-image: url('../../assets/header/strength.jpg');
+  }
+
+  58% {
+    background-image: url('../../assets/header/strength.jpg');
+  }
+
+  60% {
+    filter: brightness(30%);
+    background-image: url('../../assets/header/flex.jpg');
   }
   
-  @media (min-width: 768px) {
-    .main-header {
-      img {
-        display: block;
-        margin-left: 2em;
-        padding-top: 2em;
-      }
-    }
+  78% {
+    filter: brightness(30%);
+    background-image: url('../../assets/header/flex.jpg');
   }
-  
-  @media (min-width: 992px) {
-    .main-header {
-      &::before{
-        background-image: url('../../assets/header/start-page-big.jpg');
-      }
-      img {
-        position: absolute;
-        width: 150px;
-        margin-left: 5em;
-        padding-top: 2em;
-      }
-    }
+
+  80% {
+    background-image: url('../../assets/header/start-page-big.jpg');
   }
+
+  100% {
+    background-image: url('../../assets/header/start-page-big.jpg');
+  }
+}

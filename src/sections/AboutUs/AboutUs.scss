@@ -6,6 +6,7 @@
   &__intro {
     article {
       position: relative;
+      min-height: 560px;
 
       &::before {
         content: '';
@@ -24,15 +25,15 @@
     align-items: center;
     width: 100%;
   }
-
-  .move-up {
-    transform: translateY(-15%);
-    opacity: .9;
-  }
 }
 
 @media (min-width: 768px) {
   .aboutus {
+    &__intro{
+      article{
+        min-height: 300px;
+      }
+    }
     &__cards {
       flex-direction: row;
       flex-wrap: wrap;
@@ -51,6 +52,9 @@
       width: 30%;
       border-left: 5px solid var(--first-color);
       order: 1;
+      article{
+        min-height: 560px;
+      }
     }
 
     &__cards {

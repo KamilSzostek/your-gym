@@ -53,7 +53,7 @@
         right: 0;
         bottom: 0;
         height: 3px;
-        background-color: var(--third-color);
+        background-color: var(--white-color);
         transition: transform 0.5s;
       }
       span {
@@ -71,7 +71,7 @@
         left: 0;
         right: 0;
         height: 3px;
-        background-color: var(--third-color);
+        background-color: rgba(255, 255, 255, 0.5);
         transition: 0.5s;
         transform-origin: left;
         transform: scaleX(0);
@@ -136,7 +136,7 @@
 
 @media (min-width: 992px) {
   .nav {
-    margin-right: 3em;
+    padding-right: 3em;
     &__burger {
       display: none;
     }
@@ -162,7 +162,7 @@
         }
         span {
           min-width: 200px;
-          color: var(--third-color);
+          color: var(--white-color);
           text-decoration: none;
           opacity: 0.7;
           cursor: pointer;
@@ -177,6 +177,7 @@
     }
 
     .active {
+      color: white;
       border-bottom: none;
     }
 

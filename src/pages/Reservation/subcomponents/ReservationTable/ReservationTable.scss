@@ -80,6 +80,7 @@
             }
 
             td {
+                height: 40px;
                 min-width: 90px;
                 margin-block: 1em;
                 margin-right: 0.25em;
@@ -89,7 +90,7 @@
                 background-color: rgba(0, 0, 0, 0.521);
                 border: 1px solid var(--white-color);
                 color: var(--white-color);
-                font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+                font-size: clamp(1.2rem, 1.8vw, 1.7rem);
                 font-family: 'Zen Dots',serif;
                 cursor: pointer;
                 transition: .3s;
@@ -124,7 +125,7 @@
     .reservation__table {
         width: 87%;
         margin-right: auto;
-        margin-left: 18%;
+        margin-left: 16%;
         border: 1px solid black;
         border-radius: 2em;
         backdrop-filter: blur(7px);

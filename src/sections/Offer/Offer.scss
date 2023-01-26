@@ -40,6 +40,21 @@
 }
 
 
+@media (min-width: 768px) {
+  .offer {    &__membership {
+    padding-top: 5em;
+
+    .container {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    p {
+      text-align: center;
+    }
+  }}
+}
+
 @media (min-width: 992px) {
   .offer {
     padding-top: 5em;
@@ -62,19 +77,6 @@
         display: none;
       }
     }
-
-    &__membership {
-      padding-top: 5em;
-      .container {
-        display: flex;
-        justify-content: space-evenly;
-      }
-
-      p {
-        text-align: center;
-      }
-    }
-
   }
 }
 

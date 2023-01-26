@@ -6,10 +6,6 @@ import "./Page404.scss";
 interface IPage404Props {}
 
 const Page404: React.FunctionComponent<IPage404Props> = (props) => {
-  useEffect(() => {
-    document.body.querySelector("header")?.classList.add("d-none");
-    document.body.querySelector("footer")?.classList.add("d-none");
-  }, []);
   return (
     <section className="page-404">
       <p>oops..</p>

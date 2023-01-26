@@ -4,6 +4,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { options } from "../../utilities/carouselOptions";
 import { coaches, ICoach } from "../../utilities/coaches";
 import "./Coaches.scss";
 
@@ -34,42 +35,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
         type={coach.type}
         description={coach.description}
       />)))
-
-  const options = {
-    loop: true,
-    center: true,
-    margin: 100,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    smartSpeed: 2000,
-    nav: false,
-    dotsEach: true,
-    autoplayHoverPause: true,
-    fluidSpeed: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      300: {
-        items: 1.5
-      },
-      600: {
-        items: 2.5
-      },
-      900: {
-        items: 3
-      },
-      1200: {
-        items: 3.5
-      },
-      1400: {
-        items: 4
-      },
-      1800: {
-        items: 5
-      },
-    }
-  };
 
   return (
     <section id="coaches" className="coaches">

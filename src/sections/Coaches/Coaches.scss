@@ -5,14 +5,14 @@
 
   &__container {
     position: relative;
-    margin-top: 2em;
-    margin-inline: -5em;
-    background-color: var(--first-color);
-    box-shadow: inset 0 0 20px black;
     display: flex;
     align-items: center;
     height: 500px;
     gap: 50px;
+    margin-top: 2em;
+    margin-inline: -5em;
+    background-color: var(--first-color);
+    box-shadow: inset 0 0 30px black;
   }
 }
 
