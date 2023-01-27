@@ -16,7 +16,7 @@ const CoachCard: React.FunctionComponent<ICoachCardProps> = (props) => {
   const reservationPath = `/reservation/${name}-${id}`;
 
   return (
-    <div className="coach">
+    <div className='coach'>
       <h4>
         {name} <img src={icon} alt="" />
       </h4>
@@ -30,4 +30,4 @@ const CoachCard: React.FunctionComponent<ICoachCardProps> = (props) => {
   );
 };
 
-export default CoachCard;
+export default React.memo(CoachCard);

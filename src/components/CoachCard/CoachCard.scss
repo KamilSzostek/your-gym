@@ -52,6 +52,7 @@
     cursor: default;
     opacity: 1;
     transition: opacity 1s;
+    cursor: default;
   }
 
   &__link {
@@ -74,10 +75,6 @@
   &__bg-cover {
     display: none;
   }
-}
-
-.show {
-  animation: show 0.5s linear 1 forwards;
 }
 
 @media (min-width: 992px) {

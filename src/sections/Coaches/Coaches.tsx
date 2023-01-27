@@ -14,6 +14,9 @@ interface ICoachesProps {
 
 const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) => {
 
+  // const duplicateCoach = () => {
+  //   const newCoaches = 
+  // }
   const coachesElement = coachesFiltered
     ? (coachesFiltered?.map(coach => (
       <CoachCard
@@ -24,7 +27,8 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
         icon={coach.icon}
         type={coach.type}
         description={coach.description}
-      />)))
+      />
+    )))
     : (coaches?.map(coach => (
       <CoachCard
         key={useId()}
@@ -34,17 +38,19 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
         icon={coach.icon}
         type={coach.type}
         description={coach.description}
-      />)))
+      />
+    )))
 
   return (
     <section id="coaches" className="coaches">
       <SectionTitle title="Nasz skład trenerski" />
       <div className="coaches__container">
-        <OwlCarousel className="owl-carousel owl-theme" {...options}>
+        {coaches.length && (<OwlCarousel className="owl-carousel owl-theme" {...options}>
           {coachesElement}
-        </OwlCarousel>
+        </OwlCarousel>)}
+
       </div>
-    </section>
+    </section >
   );
 };
 

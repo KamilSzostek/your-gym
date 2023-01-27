@@ -45,7 +45,7 @@
         span {
             text-align: center;
             transform: translateY(200%);
-            animation: vertical-changer 15s linear infinite;
+            animation: vertical-changer 15s 3s linear infinite;
         }
     }
 }

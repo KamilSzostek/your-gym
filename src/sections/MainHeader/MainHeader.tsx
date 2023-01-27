@@ -11,6 +11,10 @@ const MainHeader: React.FunctionComponent = () => {
             <img src={logo} alt="Logo siłowni power gym" />
             <Navigation />
             <HeaderText />
+            <div className='header-bg'/>
+            <div className='header-bg'/>
+            <div className='header-bg'/>
+            <div className='header-bg'/>
         </section>
     );
 };

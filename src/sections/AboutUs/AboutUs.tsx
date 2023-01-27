@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useRef } from "react";
+import React, { useId, useLayoutEffect, useState, useRef } from "react";
 import Article from "../../components/Article/Article";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import PhotosGrid from "../../components/PhotosGrid/PhotosGrid";
@@ -47,6 +47,7 @@ const AboutUs: React.FunctionComponent = () => {
 
   const cardElements = cards.map(card => (
     <Card
+      key={useId()}
       title={card.title}
       icon1={card.icon}
       text={card.text}
