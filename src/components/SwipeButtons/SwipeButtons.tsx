@@ -13,6 +13,7 @@ interface IButtonArrowProps {
 }
 
 const ButtonArrow: React.FunctionComponent<IButtonArrowProps> = ({ cardsRef, cardClass }) => {
+    const counter = 0;
     return (
         <>
             <button

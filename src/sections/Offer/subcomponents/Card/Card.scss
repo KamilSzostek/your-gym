@@ -3,7 +3,9 @@
 .offer__card {
     position: relative;
     display: flex;
+    justify-content: end;
     align-items: end;
+    -webkit-box-align: end;
     min-width: 100vw;
     height: 450px;
     color: var(--white-color);
@@ -11,7 +13,6 @@
     transform-origin: left;
     background-size: cover;
     background-position: center;
-    border-radius: 2em;
     overflow: hidden;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
     z-index: 0;
@@ -64,6 +65,7 @@
         position: absolute;
         min-width: auto;
         height: auto;
+        border-radius: 2em;
     }
 
     .offer__card:nth-last-child(1) {

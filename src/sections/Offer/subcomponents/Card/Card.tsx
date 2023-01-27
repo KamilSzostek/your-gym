@@ -5,10 +5,11 @@ interface ICardProps {
     scale?: string;
     title: string;
     comp: JSX.Element;
+    active?: string;
 }
 
-const Card: React.FunctionComponent<ICardProps> = ({ scale, title, comp }) => {
-    const classes = scale ? `offer__card ${scale}` : 'offer__card';
+const Card: React.FunctionComponent<ICardProps> = ({ scale, title, comp, active }) => {
+    const classes = scale ? `offer__card ${scale} ${active}` : `offer__card ${active}`;
     return (
         <div className={classes}>
             <div className='offer__card__content'>

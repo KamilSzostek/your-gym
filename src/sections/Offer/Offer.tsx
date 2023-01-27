@@ -25,7 +25,7 @@ const Offer: React.FunctionComponent = () => {
       <div className="offer__container">
         <SwipeButtons cardsRef={cardsRef} cardClass='offer__card' />
         <div className="offer__container__cards" ref={cardsRef}>
-          <Card title={card1Data.title} comp={tableElement} />
+          <Card active='active' title={card1Data.title} comp={tableElement} />
           <Card title={card2Data.title} comp={<p>{card2Data.data}</p>} />
           <Card title={card3Data.title} comp={<p>{card3Data.data}</p>} />
         </div>

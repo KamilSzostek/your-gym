@@ -25,7 +25,8 @@
         span {
             width: inherit;
             transform: translateX(-100%);
-            animation: horizontal-changer 15s linear infinite;
+            -webkit-animation: horizontal-changer 15s 3s linear infinite;
+            animation: horizontal-changer 15s 3s linear infinite;
         }
     }
 
@@ -45,6 +46,7 @@
         span {
             text-align: center;
             transform: translateY(200%);
+            -webkit-animation: vertical-changer 15s 3s linear infinite;
             animation: vertical-changer 15s 3s linear infinite;
         }
     }
@@ -73,6 +75,47 @@
 
 
 
+@-webkit-keyframes vertical-changer {
+    2% {
+        transform: translateY(0);
+    }
+
+    18% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-100%);
+    }
+
+    38% {
+        transform: translateY(-100%);
+    }
+
+    40% {
+        transform: translateY(-200%);
+    }
+
+    58% {
+        transform: translateY(-200%);
+    }
+
+    60% {
+        transform: translateY(-300%);
+    }
+
+    78% {
+        transform: translateY(-300%);
+    }
+
+    80% {
+        transform: translateY(-400%);
+    }
+
+    100% {
+        transform: translateY(-400%);
+    }
+}
 @keyframes vertical-changer {
     2% {
         transform: translateY(0);
@@ -115,6 +158,23 @@
     }
 }
 
+@-webkit-keyframes horizontal-changer {
+    2% {
+        transform: translateX(0);
+    }
+
+    78% {
+        transform: translateX(0);
+    }
+
+    80% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
 @keyframes horizontal-changer {
     2% {
         transform: translateX(0);

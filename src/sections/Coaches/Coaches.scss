@@ -1,6 +1,5 @@
 .coaches {
   margin-top: 10em;
-  margin-bottom: 5em;
   overflow: hidden;
 
   &__container {
@@ -9,9 +8,12 @@
     align-items: center;
     height: 500px;
     gap: 50px;
-    margin-top: 2em;
+    // margin-top: 2em;
     margin-inline: -5em;
-    background-color: var(--first-color);
+    background: #002f49
+    linear-gradient(to top,
+    rgba(51, 51, 51, 0.4),
+    rgba(255, 255, 255, 0.3));
     box-shadow: inset 0 0 30px black;
   }
 }

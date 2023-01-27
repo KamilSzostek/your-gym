@@ -18,29 +18,13 @@
     filter: brightness(70%);
     z-index: -1;
     animation: background-changer 15s 3s linear infinite;
+    -webkit-animation: background-changer 15s 3s linear infinite;
 
   }
 
   img {
     width: 125px;
     z-index: 1;
-  }
-
-  .header-bg{
-    @include bg-cover;
-    opacity: 0;
-  }
-  .header-bg:nth-last-child(4){
-    background-image: url('../../assets/header/speed.jpg');
-  }
-  .header-bg:nth-last-child(3){
-    background-image: url('../../assets/header/strength.jpg');
-  }
-  .header-bg:nth-last-child(2){
-    background-image: url('../../assets/header/flex.jpg');
-  }
-  .header-bg:nth-last-child(1){
-    background-image: url('../../assets/header/start-page-big.jpg');
   }
 }
 
@@ -115,7 +99,7 @@
     background-image: url('../../assets/header/start-page-big.jpg');
   }
 }
-@keyframes background-changer {
+@-webkit-keyframes background-changer {
   2% {
     background-image: url('../../assets/header/power.jpg');
   }
