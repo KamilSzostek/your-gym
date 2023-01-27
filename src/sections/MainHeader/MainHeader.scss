@@ -1,9 +1,11 @@
 @import '../../mixins/mixins';
+
 .main-header {
   position: relative;
   height: 100vh;
   text-align: center;
   z-index: 0;
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -17,8 +19,8 @@
     background-position: 50%;
     filter: brightness(70%);
     z-index: -1;
-    animation: background-changer 15s 3s linear infinite;
-    -webkit-animation: background-changer 15s 3s linear infinite;
+    // animation: background-changer 15s linear infinite;
+    // -webkit-animation: background-changer 15s linear infinite;
 
   }
 
@@ -26,7 +28,48 @@
     width: 125px;
     z-index: 1;
   }
+
+  .bg-images {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    animation: changer 15s linear infinite both;
+    z-index: -1;
+
+    .bg-image {
+      height: 100vh;
+      min-width: 100vw;
+      background-size: cover;
+      background-position: center;
+
+    }
+
+    .bg-image:nth-last-child(5) {
+      background-image: url('../../assets/header/power.jpg');
+    }
+
+    .bg-image:nth-last-child(4) {
+      background-image: url('../../assets/header/speed.jpg');
+    }
+
+    .bg-image:nth-last-child(3) {
+      background-image: url('../../assets/header/strength.jpg');
+    }
+
+    .bg-image:nth-last-child(2) {
+      background-image: url('../../assets/header/flex.jpg');
+      filter: brightness(50%);
+    }
+
+    .bg-image:nth-last-child(1) {
+      background-image: url('../../assets/header/start-page-big.jpg');
+      filter: brightness(70%);
+    }
+  }
 }
+
 
 @media (min-width: 768px) {
   .main-header {
@@ -53,6 +96,48 @@
       margin-left: 5em;
       padding-top: 2em;
     }
+  }
+}
+
+@keyframes changer {
+  2% {
+    transform: translateY(0);
+  }
+  
+  15% {
+    transform: translateY(0);
+  }
+  
+  20% {
+    transform: translateY(-20%);
+  }
+  
+  35% {
+    transform: translateY(-20%);
+  }
+  
+  40% {
+    transform: translateY(-40%);
+  }
+  
+  55% {
+    transform: translateY(-40%);
+  }
+  
+  60% {
+    transform: translateY(-60%);
+  }
+  
+  75% {
+    transform: translateY(-60%);    
+  }
+
+  80% {
+    transform: translateY(-80%);    
+  }
+  
+  100% {
+    transform: translateY(-80%);    
   }
 }
 
@@ -85,7 +170,7 @@
     filter: brightness(30%);
     background-image: url('../../assets/header/flex.jpg');
   }
-  
+
   78% {
     filter: brightness(30%);
     background-image: url('../../assets/header/flex.jpg');
@@ -99,6 +184,7 @@
     background-image: url('../../assets/header/start-page-big.jpg');
   }
 }
+
 @-webkit-keyframes background-changer {
   2% {
     background-image: url('../../assets/header/power.jpg');
@@ -128,7 +214,7 @@
     filter: brightness(30%);
     background-image: url('../../assets/header/flex.jpg');
   }
-  
+
   78% {
     filter: brightness(30%);
     background-image: url('../../assets/header/flex.jpg');

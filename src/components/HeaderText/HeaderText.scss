@@ -23,10 +23,10 @@
         overflow: hidden;
 
         span {
-            width: inherit;
+            width: 100%;
             transform: translateX(-100%);
-            -webkit-animation: horizontal-changer 15s 3s linear infinite;
-            animation: horizontal-changer 15s 3s linear infinite;
+            -webkit-animation: horizontal-changer 15s linear infinite;
+            animation: horizontal-changer 15s linear infinite;
         }
     }
 
@@ -46,8 +46,8 @@
         span {
             text-align: center;
             transform: translateY(200%);
-            -webkit-animation: vertical-changer 15s 3s linear infinite;
-            animation: vertical-changer 15s 3s linear infinite;
+            -webkit-animation: vertical-changer 15s linear infinite;
+            animation: vertical-changer 15s linear infinite;
         }
     }
 }
