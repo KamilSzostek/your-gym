@@ -1,6 +1,5 @@
 export const options = {
   loop: true,
-  margin: 100,
   autoplay: true,
   autoplayTimeout: 2000,
   smartSpeed: 2000,
