@@ -19,9 +19,6 @@
     background-position: 50%;
     filter: brightness(70%);
     z-index: -1;
-    // animation: background-changer 15s linear infinite;
-    // -webkit-animation: background-changer 15s linear infinite;
-
   }
 
   img {
@@ -64,7 +61,7 @@
     }
 
     .bg-image:nth-last-child(1) {
-      background-image: url('../../assets/header/start-page-big.jpg');
+      background-image: url('../../assets/header/gym.jpg');
       filter: brightness(70%);
     }
   }
@@ -138,93 +135,5 @@
   
   100% {
     transform: translateY(-80%);    
-  }
-}
-
-@keyframes background-changer {
-  2% {
-    background-image: url('../../assets/header/power.jpg');
-  }
-
-  18% {
-    background-image: url('../../assets/header/power.jpg');
-  }
-
-  20% {
-    background-image: url('../../assets/header/speed.jpg');
-  }
-
-  38% {
-    background-image: url('../../assets/header/speed.jpg');
-  }
-
-  40% {
-    background-image: url('../../assets/header/strength.jpg');
-  }
-
-  58% {
-    background-image: url('../../assets/header/strength.jpg');
-  }
-
-  60% {
-    filter: brightness(30%);
-    background-image: url('../../assets/header/flex.jpg');
-  }
-
-  78% {
-    filter: brightness(30%);
-    background-image: url('../../assets/header/flex.jpg');
-  }
-
-  80% {
-    background-image: url('../../assets/header/start-page-big.jpg');
-  }
-
-  100% {
-    background-image: url('../../assets/header/start-page-big.jpg');
-  }
-}
-
-@-webkit-keyframes background-changer {
-  2% {
-    background-image: url('../../assets/header/power.jpg');
-  }
-
-  18% {
-    background-image: url('../../assets/header/power.jpg');
-  }
-
-  20% {
-    background-image: url('../../assets/header/speed.jpg');
-  }
-
-  38% {
-    background-image: url('../../assets/header/speed.jpg');
-  }
-
-  40% {
-    background-image: url('../../assets/header/strength.jpg');
-  }
-
-  58% {
-    background-image: url('../../assets/header/strength.jpg');
-  }
-
-  60% {
-    filter: brightness(30%);
-    background-image: url('../../assets/header/flex.jpg');
-  }
-
-  78% {
-    filter: brightness(30%);
-    background-image: url('../../assets/header/flex.jpg');
-  }
-
-  80% {
-    background-image: url('../../assets/header/start-page-big.jpg');
-  }
-
-  100% {
-    background-image: url('../../assets/header/start-page-big.jpg');
   }
 }

@@ -7,7 +7,8 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 500px;
+    height: 550px;
+    flex-wrap: wrap;
     gap: 50px;
     margin-inline: -5em;
     background: #002f49
@@ -19,22 +20,25 @@
     .wrapper{
       display: flex;
       gap: 50px;
-      animation: carousel 30s linear infinite both;
+      animation: carousel 20s linear infinite both;
     }
     .dots{
-      position: absolute;
-      bottom:5%;
-      left: 50%;
       display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: -5em;
+      margin-bottom: 2em;
       gap: 5px;
-      text-align: center;
-      transform: translate(-50%, -100%);
       .dot{
         min-width: 12px;
         min-height: 12px;
         background-color: rgba(0, 0, 0, 0.5);
         border-radius: 50%;
         transition: .5s;
+        cursor: pointer;
+      }
+      .activeted{
+        background-color: rgba(255, 255, 255, 0.5);
       }
     }
   }
@@ -42,19 +46,25 @@
     animation-play-state: paused;
   }
 }
-.activeted{
-  background-color: rgba(255, 255, 255, 0.5) !important;
-}
 @media (min-width: 992px) {
   .coaches {
     &__container {
-      height: 600px;
+      .wrapper{
+        display: flex;
+        gap: 50px;
+        animation: carousel2 20s linear infinite both;
+      }
     }
   }
 }
 
 @keyframes carousel {
   to{
-    transform: translateX(-50.5%);
+    transform: translateX(-50.695%);
+  }
+}
+@keyframes carousel2 {
+  to{
+    transform: translateX(-50.595%);
   }
 }
