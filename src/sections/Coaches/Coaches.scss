@@ -1,3 +1,5 @@
+@import '../../mixins/mixins';
+
 .coaches {
   position: relative;
   margin-top: 10em;
@@ -11,18 +13,18 @@
     flex-wrap: wrap;
     gap: 50px;
     margin-inline: -5em;
-    background: #002f49
-    linear-gradient(to top,
-    rgba(51, 51, 51, 0.4),
-    rgba(255, 255, 255, 0.3));
+    background: #002f49 linear-gradient(to top,
+        rgba(51, 51, 51, 0.4),
+        rgba(255, 255, 255, 0.3));
     box-shadow: inset 0 0 30px black;
 
-    .wrapper{
+    .wrapper {
       display: flex;
       gap: 50px;
       animation: carousel 20s linear infinite both;
     }
-    .dots{
+
+    .dots {
       display: flex;
       justify-content: center;
       width: 100%;
@@ -30,7 +32,8 @@
       margin-top: -5em;
       margin-bottom: 2em;
       gap: 5px;
-      .dot{
+
+      .dot {
         min-width: 12px;
         min-height: 12px;
         background-color: rgba(0, 0, 0, 0.5);
@@ -38,19 +41,22 @@
         transition: .5s;
         cursor: pointer;
       }
-      .activeted{
+
+      .activeted {
         background-color: rgba(255, 255, 255, 0.5) !important;
       }
     }
-    .paused{
+
+    .paused {
       animation-play-state: paused !important;
     }
   }
 }
+
 @media (min-width: 992px) {
   .coaches {
     &__container {
-      .wrapper{
+      .wrapper {
         display: flex;
         gap: 50px;
         animation: carousel2 20s linear infinite both;
@@ -60,12 +66,13 @@
 }
 
 @keyframes carousel {
-  to{
+  to {
     transform: translateX(-50.695%);
   }
 }
+
 @keyframes carousel2 {
-  to{
+  to {
     transform: translateX(-50.595%);
   }
 }

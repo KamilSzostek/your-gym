@@ -9,13 +9,13 @@
   height: 420px;
   margin-block: 1em;
   border: 1px solid black;
-  border-radius: 2em;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
   transform: translateX(20%);
 
   h4 {
+    margin-bottom: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,7 +40,7 @@
 
   p {
     height: fit-content;
-    margin-top: 40%;
+    height: 40%;
     margin-bottom: 0;
     padding: 2em .5em;
     background-color: rgba(0, 0, 0, 0.35);
@@ -48,8 +48,6 @@
     font-size: clamp(1.4rem, 1.5vw, 1.6rem);
     line-height: 1.2em;
     text-align: left;
-    opacity: 0;
-    cursor: default;
     opacity: 1;
     transition: opacity 1s;
     cursor: default;
@@ -74,6 +72,7 @@
 
   &__bg-cover {
     display: none;
+    border-radius: 0%;
   }
 }
 
@@ -88,7 +87,7 @@
     }
 
     p {
-      margin-top: 0;
+      padding-top: .5em;
       background: transparent;
       opacity: 0;
     }
@@ -99,11 +98,12 @@
       background-color: rgba(0, 0, 0, 0.35);
       transform-origin: bottom;
       transition: transform 0.5s;
-      border-radius: 2em;
+      border-radius: 0;
     }
 
     &__link:hover {
       background-color: rgba(0, 0, 0, 0.35);
+      border-radius: 0;
 
       a {
         color: var(--white-color);
