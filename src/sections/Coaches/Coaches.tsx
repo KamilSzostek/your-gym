@@ -14,14 +14,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
   const dotsRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const slideToCard = (e: React.MouseEvent<HTMLDivElement>) => {
-    const wrapper = wrapperRef.current!;
-    const transformX = parseInt(window.getComputedStyle(wrapper).getPropertyValue("transform").split(',')[4]);
-    const id = parseInt(e.currentTarget.id);
-    const length = e.currentTarget.parentNode?.childNodes.length!;
-    wrapper.style.transform = `translateX(${wrapper.offsetWidth * (id / length)}px)`
-  }
-
   const coachesElement = coachesFiltered
     ? ([...coachesFiltered, ...coachesFiltered]?.map((coach, key) => (
       <CoachCard
@@ -52,12 +44,12 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
     ? (coachesFiltered?.map((coach, key) => {
       const dotClass = `dot${key + 1} dot${key + 1 + coachesFiltered.length}`
       return (
-        <div key={useId()} style={{minWidth: '10px', backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '50%', transition: '0.5s'}} id={(key + 1).toString()} className={dotClass} onClick={slideToCard} />)
+        <div key={useId()} style={{ minWidth: '10px', backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '50%', transition: '0.5s' }} id={(key + 1).toString()} className={dotClass} />)
     }))
     : (coaches?.map((coach, key) => {
       const dotClass = `dot dot${key + 1} dot${key + 1 + coaches.length}`
       return (
-        <div key={useId()} id={(key + 1).toString()} className={dotClass} onClick={slideToCard} />)
+        <div key={useId()} id={(key + 1).toString()} className={dotClass} />)
     }))
 
   return (

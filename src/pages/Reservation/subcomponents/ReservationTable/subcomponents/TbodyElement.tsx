@@ -8,7 +8,7 @@ interface ITbodyElementProps {
 }
 const TbodyElement: React.FunctionComponent<ITbodyElementProps> = ({ id, row, setDay, setTime }) => {
     let index = 0;
-    const modalId = `#${id}`;
+    const modalId = `#modal${id}`;
     const clickHandler = (e: React.MouseEvent<HTMLTableCellElement>) => {
         const header = e.currentTarget.headers;
         const timeInterval = e.currentTarget.parentElement?.querySelector('td')?.innerText!;

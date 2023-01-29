@@ -34,8 +34,10 @@ const FormModal: React.FunctionComponent<IFormModalProps> = ({
   };
   const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {};
 
+  const modalId = `modal${coachNumber?.toString()}`;
+
   return (
-    <Modal coachNumber={coachNumber}>
+    <Modal modalId={modalId}>
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content border rounded-5">
           <div className="modal-header">

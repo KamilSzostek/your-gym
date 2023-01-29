@@ -3,16 +3,17 @@ import ReactDOM from "react-dom";
 
 interface IModalProps {
   children: JSX.Element;
-  coachNumber?: string;
+  modalId?: string;
 }
 
 const Modal: React.FunctionComponent<IModalProps> = ({
   children,
-  coachNumber,
+  modalId,
 }) => {
 
+  
   return ReactDOM.createPortal(
-    <div className="modal fade" id={coachNumber?.toString()}>
+    <div className="modal fade" id={modalId}>
       {children}
     </div>,
     document.body
