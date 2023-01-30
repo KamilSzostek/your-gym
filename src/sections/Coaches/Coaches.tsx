@@ -1,8 +1,6 @@
 import React, { useId, useRef } from "react";
 import CoachCard from "../../components/CoachCard/CoachCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { coaches, ICoach } from "../../utilities/coaches";
 import "./Coaches.scss";
 
@@ -13,12 +11,15 @@ let animation: number;
 
 const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) => {
   cancelAnimationFrame(animation);
+
   const dotsRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const coachesArr = coachesFiltered ? coachesFiltered : coaches;
   let leftpos = 0;
   let isPaused = false;
   let isDragStart = false, prevPageX: number, prevScollLeft: number;
   let maxPosition = 50.695;
+
   function step(timestamp: number) {
     setTimeout(function () {
       leftpos += 0.05;
@@ -31,7 +32,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
       if (leftpos > maxPosition) {
         leftpos = 0
       }
-
       if (!isPaused)
         requestAnimationFrame(step)
     }, 1000 / 60)
@@ -95,46 +95,25 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
     }, 1000)
   }
 
-  const dotElements = coachesFiltered
-    ? (coachesFiltered?.map((coach, key) => {
-      const dotClass = `dot dot${key + 1} dot${key + 1 + coachesFiltered.length}`
-      const idClass = key === 0 ? coachesFiltered?.length - 1 : key - 1;
+  const dotElements = coachesArr?.map((coach, key) => {
+      const dotClass = `dot dot${key + 1} dot${key + 1 + coachesArr.length}`
+      const idClass = key === 0 ? coachesArr?.length - 1 : key - 1;
       return (
         <div key={useId()} id={(idClass).toString()} className={dotClass} onClick={swipeHandle} />)
-    }))
-    : (coaches?.map((coach, key) => {
-      const dotClass = `dot dot${key + 1} dot${key + 1 + coaches.length}`;
-      const idClass = key === 0 ? coaches?.length - 1 : key - 1;
-      return (
-        <div key={useId()} id={(idClass).toString()} className={dotClass} onClick={swipeHandle} />)
-    }))
+    })
 
-  const coachesElement = coachesFiltered
-    ? ([...coachesFiltered, ...coachesFiltered]?.map((coach, key) => (
-      <CoachCard
-        key={useId()}
-        index={key + 1}
-        id={coach.id}
-        name={coach.name}
-        img={coach.image}
-        icon={coach.icon}
-        type={coach.type}
-        description={coach.description}
-      />
-    )))
-    : ([...coaches, ...coaches]?.map((coach, key) => (
-      <CoachCard
-        key={useId()}
-        index={key + 1}
-        id={coach.id}
-        name={coach.name}
-        img={coach.image}
-        icon={coach.icon}
-        type={coach.type}
-        description={coach.description}
-      />
-    )))
-
+  const coachesElement = [...coachesArr, ...coachesArr]?.map((coach, key) => (
+    <CoachCard
+      key={useId()}
+      index={key + 1}
+      id={coach.id}
+      name={coach.name}
+      img={coach.image}
+      icon={coach.icon}
+      type={coach.type}
+      description={coach.description}
+    />
+  ))
 
   return (
     <section id="coaches" className="coaches">
