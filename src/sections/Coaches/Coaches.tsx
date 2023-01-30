@@ -50,7 +50,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
   }
   const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     isDragStart = true
-    prevScollLeft = wrapperRef.current?.scrollLeft!;
   }
   const touchStop = (e: React.TouchEvent<HTMLDivElement>) => {
     const wrapper = wrapperRef.current!;
@@ -58,14 +57,16 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
     isDragStart = false;
   }
   const touching = (e: React.TouchEvent<HTMLDivElement>) => {
+    console.log('touch');
     const wrapper = wrapperRef.current!;
     const translateX = parseInt(wrapper.style.transform.split('(')[1]);
     if (isDragStart) {
-      const pageX = e.touches[0].pageX / window.innerWidth*2;
+      const pageX = e.touches[0].pageX / window.innerWidth;
       let posDiff = 0;
-      posDiff = translateX - pageX;
+      posDiff = translateX - pageX - 0.5;
       if (posDiff > (-maxPosition)) {
         wrapper.style.transform = `translateX(${posDiff}%)`;
+        leftpos = posDiff;
       }
       wrapper.classList.add('draging')
     }

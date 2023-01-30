@@ -14,8 +14,8 @@
     display: flex;
     gap: 50px;
     cursor: pointer;
-    transform: translateX(-100%);
-    // animation: carousel 15s linear infinite;
+    // transform: translateX(-100%);
+    animation: carousel 15s linear infinite;
   }
 
   .paused {
@@ -54,6 +54,7 @@
 
 @keyframes carousel {
   to {
-    transform: translateX(-50%);
+    width: 200%;
+    transform: translateX(-192.4%);
   }
 }
