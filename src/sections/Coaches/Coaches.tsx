@@ -52,7 +52,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
   }
   const touchStop = (e: React.TouchEvent<HTMLDivElement>) => {
     const wrapper = wrapperRef.current!;
-    console.log(leftpos);
     wrapper.classList.remove('draging')
     isDragStart = false;
     isPaused = false;
