@@ -61,7 +61,7 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
     const wrapper = wrapperRef.current!;
     const translateX = parseInt(wrapper.style.transform.split('(')[1]);
     if (isDragStart) {
-      const pageX = e.touches[0].pageX / window.innerWidth;
+      const pageX = e.touches[0].pageX / window.innerWidth*1.2;
       let posDiff = 0;
       posDiff = translateX - pageX;
       if (posDiff > (-maxPosition)) {
