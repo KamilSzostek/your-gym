@@ -1,0 +1,59 @@
+.wrapper {
+  height: 550px;
+  width: 100vw;
+  text-align: center;
+  padding-top: 5em;
+  background: #002f49 linear-gradient(to top,
+      rgba(51, 51, 51, 0.4),
+      rgba(255, 255, 255, 0.3));
+  box-shadow: inset 0 0 30px black;
+
+  .carousel {
+    width: 100%;
+    font-size: 0;
+    display: flex;
+    gap: 50px;
+    cursor: pointer;
+    transform: translateX(-100%);
+    // animation: carousel 15s linear infinite;
+  }
+
+  .paused {
+    animation-play-state: paused !important;
+  }
+
+  
+}
+.draging {
+  cursor: grab !important;
+}
+.dots {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 12px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  gap: 5px;
+
+  .dot {
+    min-width: 12px;
+    min-height: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: .5s;
+    cursor: pointer;
+  }
+
+  .activeted {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+
+
+@keyframes carousel {
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -4,8 +4,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: end;
   min-width: 300px;
+  width: 300px;
   height: 420px;
   margin-block: 1em;
   border: 1px solid black;
@@ -13,6 +13,7 @@
   overflow: hidden;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
   transform: translateX(20%);
+  user-select: none;
 
   h4 {
     margin-bottom: auto;
@@ -54,14 +55,11 @@
   }
 
   &__link {
-    margin: 0;
     padding-block: 1em;
     background-color: rgba(255, 255, 255, 0.7);
     border-top: 2px solid var(--white-color);
 
     a {
-      padding: 1em;
-      min-width: 100%;
       color: black;
       font-size: 2rem;
       font-family: 'Zen Dots';
