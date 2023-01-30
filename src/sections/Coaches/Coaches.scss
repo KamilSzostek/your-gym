@@ -5,7 +5,7 @@
     margin-top: 10em;
     overflow: hidden;
 
-    &__container {
+    .container {
         position: relative;
         display: flex;
         align-items: center;
@@ -13,7 +13,8 @@
         gap: 50px;
         height: 550px;
         padding-top: 5em;
-        margin-inline: -5em;
+        min-width: 110vw;
+        margin-left: -5vw;
         background-color: var(--first-color);
         box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.7),
             inset 0 10px 30px rgba(0, 0, 0, 0.7);
@@ -64,7 +65,7 @@
 
 @media (min-width: 992px) {
     .coaches {
-        &__container {
+        .container {
             .wrapper {
                 display: flex;
                 gap: 50px;
