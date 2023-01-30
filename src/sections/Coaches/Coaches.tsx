@@ -76,7 +76,38 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
     }
   }
 
+  const swipeHandle = (e: React.MouseEvent<HTMLDivElement>) => {
+    const wrapper = wrapperRef.current!;
+    const id = parseInt(e.currentTarget.id);
+    const screenSizeDiff = window.innerWidth / 100 - 5;
+    const pos = id * (maxPosition / (coachesElement.length / 2)) - screenSizeDiff;
+    console.log(id);
+    if (pos < 0)
+      leftpos = maxPosition - screenSizeDiff + id * 10;
+    else
+      leftpos = pos;
+    wrapper.classList.add('transition-500');
+    isPaused = true;
+    setTimeout(() => {
+      isPaused = false;
+      animation = requestAnimationFrame(step);
+      wrapper.classList.remove('transition-500');
+    }, 1000)
+  }
 
+  const dotElements = coachesFiltered
+    ? (coachesFiltered?.map((coach, key) => {
+      const dotClass = `dot dot${key + 1} dot${key + 1 + coachesFiltered.length}`
+      const idClass = key === 0 ? coachesFiltered?.length - 1 : key - 1;
+      return (
+        <div key={useId()} id={(idClass).toString()} className={dotClass} onClick={swipeHandle} />)
+    }))
+    : (coaches?.map((coach, key) => {
+      const dotClass = `dot dot${key + 1} dot${key + 1 + coaches.length}`;
+      const idClass = key === 0 ? coaches?.length - 1 : key - 1;
+      return (
+        <div key={useId()} id={(idClass).toString()} className={dotClass} onClick={swipeHandle} />)
+    }))
 
   const coachesElement = coachesFiltered
     ? ([...coachesFiltered, ...coachesFiltered]?.map((coach, key) => (
@@ -103,37 +134,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
         description={coach.description}
       />
     )))
-
-  const swipeHandle = (e: React.MouseEvent<HTMLDivElement>) => {
-    const wrapper = wrapperRef.current!;
-    const id = parseInt(e.currentTarget.id);
-    const screenSizeDiff = window.innerWidth / 100 - 5;
-    const pos = id * (maxPosition / (coachesElement.length / 2)) - screenSizeDiff;
-    if (pos < 0)
-      leftpos = maxPosition - screenSizeDiff;
-    else
-      leftpos = pos;
-    wrapper.classList.add('transition-500');
-    isPaused = true;
-    setTimeout(() => {
-      isPaused = false;
-      animation = requestAnimationFrame(step);
-      wrapper.classList.remove('transition-500');
-    }, 1000)
-  }
-  const dotElements = coachesFiltered
-    ? (coachesFiltered?.map((coach, key) => {
-      const dotClass = `dot dot${key + 1} dot${key + 1 + coachesFiltered.length}`
-      const idClass = key === 0 ? coachesFiltered?.length - 1 : key - 1;
-      return (
-        <div key={useId()} id={(idClass).toString()} className={dotClass} onClick={swipeHandle} />)
-    }))
-    : (coaches?.map((coach, key) => {
-      const dotClass = `dot dot${key + 1} dot${key + 1 + coaches.length}`;
-      const idClass = key === 0 ? coaches?.length - 1 : key - 1;
-      return (
-        <div key={useId()} id={(idClass).toString()} className={dotClass} onClick={swipeHandle} />)
-    }))
 
 
   return (
