@@ -40,12 +40,14 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
   animation = window.requestAnimationFrame(step);
 
   const mouseEnter = () => {
-    isPaused = true;
+    if (window.innerWidth >= 992)
+      isPaused = true;
   }
   const mouseLeave = () => {
-    isPaused = false;
-    isDragStart = false;
-    wrapperRef.current?.classList.remove('draging')
+    if (window.innerWidth >= 992) {
+      isPaused = false;
+      animation = window.requestAnimationFrame(step);
+    }
   }
   const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     isDragStart = true
@@ -55,7 +57,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
     wrapper.classList.remove('draging')
     isDragStart = false;
     isPaused = false;
-    requestAnimationFrame(step);
   }
 
   const touching = (e: React.TouchEvent<HTMLDivElement>) => {
