@@ -45,7 +45,6 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
   const mouseLeave = () => {
     isPaused = false;
     isDragStart = false;
-    animation = window.requestAnimationFrame(step);
     wrapperRef.current?.classList.remove('draging')
   }
   const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -53,21 +52,26 @@ const Coaches: React.FunctionComponent<ICoachesProps> = ({ coachesFiltered }) =>
   }
   const touchStop = (e: React.TouchEvent<HTMLDivElement>) => {
     const wrapper = wrapperRef.current!;
+    console.log(leftpos);
     wrapper.classList.remove('draging')
     isDragStart = false;
+    isPaused = false;
+    requestAnimationFrame(step);
   }
+
   const touching = (e: React.TouchEvent<HTMLDivElement>) => {
-    console.log('touch');
     const wrapper = wrapperRef.current!;
     const translateX = parseInt(wrapper.style.transform.split('(')[1]);
     if (isDragStart) {
       const pageX = e.touches[0].pageX / window.innerWidth;
       let posDiff = 0;
-      posDiff = translateX - pageX - 0.5;
+      posDiff = translateX - pageX - 0.2;
       if (posDiff > (-maxPosition)) {
         wrapper.style.transform = `translateX(${posDiff}%)`;
-        leftpos = posDiff;
       }
+      else
+        wrapper.style.transform = `translateX(0%)`;
+      leftpos = -posDiff;
       wrapper.classList.add('draging')
     }
   }
