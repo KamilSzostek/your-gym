@@ -6,10 +6,21 @@ interface ICarouselProps {
   coachesArr: ICoach[];
 }
 
-let animation: number;
+const animations: number[] = [];
 const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
   const dotsRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const clearAnimations = () => {
+    for (const ani of animations) {
+      cancelAnimationFrame(ani)
+    }
+  }
+  useEffect(() => {
+    clearAnimations()
+    animations.push(requestAnimationFrame(step));
+  })
+
   let leftpos = 0;
   let isPaused = false;
   let isDragStart = false;
@@ -27,17 +38,12 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
       if (leftpos > maxPosition) {
         leftpos = 0
       }
+      clearAnimations()
       if (!isPaused) {
-        cancelAnimationFrame(animation)
-        animation = requestAnimationFrame(step)
+        animations.push(requestAnimationFrame(step));
       }
     }, 1000 / 60)
   }
-
-  useEffect(() => {
-    cancelAnimationFrame(animation)
-    animation = requestAnimationFrame(step);
-  })
   const mouseEnter = () => {
     if (window.innerWidth >= 992)
       isPaused = true;
@@ -45,8 +51,8 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
   const mouseLeave = () => {
     if (window.innerWidth >= 992) {
       isPaused = false;
-      cancelAnimationFrame(animation);
-      animation = requestAnimationFrame(step);
+      clearAnimations()
+      animations.push(requestAnimationFrame(step));
     }
   }
   const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -55,6 +61,8 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
   const touchStop = (e: React.TouchEvent<HTMLDivElement>) => {
     isDragStart = false;
     isPaused = false;
+    clearAnimations()
+    animations.push(requestAnimationFrame(step));
   }
 
   const touching = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -87,6 +95,7 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
     isPaused = true;
     setTimeout(() => {
       isPaused = false;
+      clearAnimations();
       requestAnimationFrame(step);
       wrapper.classList.remove('transition-500');
     }, 1000)
