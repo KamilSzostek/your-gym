@@ -6,7 +6,8 @@ interface ICarouselProps {
   coachesArr: ICoach[];
 }
 
-const animations: number[] = [];
+let animations: number[] = [];
+let timeouts: number[] = [];
 const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
   const dotsRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -15,9 +16,17 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
     for (const ani of animations) {
       cancelAnimationFrame(ani)
     }
+    animations = [];
+  }
+  const clearTimeouts = () => {
+    for (const timeout of timeouts) {
+      clearTimeout(timeout)
+    }
+    timeouts = [];
   }
   useEffect(() => {
-    clearAnimations()
+    clearTimeouts();
+    clearAnimations();
     animations.push(requestAnimationFrame(step));
   })
 
@@ -27,13 +36,13 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
   let maxPosition = 50.695;
 
   function step(timestamp: number) {
-    setTimeout(function () {
-      leftpos += 0.02;
+    timeouts.push(setTimeout(function () {
+      leftpos += 0.03;
       const wrapper = wrapperRef.current!;
       if (wrapper)
         wrapper.style.transform = `translateX(-${leftpos}%)`;
       if (window.innerWidth > 992) {
-        maxPosition = 50.595
+        maxPosition = 50.555;
       }
       if (leftpos > maxPosition) {
         leftpos = 0
@@ -42,8 +51,9 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
       if (!isPaused) {
         animations.push(requestAnimationFrame(step));
       }
-    }, 1000 / 60)
+    }, 1000 / 60))
   }
+
   const mouseEnter = () => {
     if (window.innerWidth >= 992)
       isPaused = true;
