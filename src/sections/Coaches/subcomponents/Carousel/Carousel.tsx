@@ -111,6 +111,7 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
     }, 1000)
   }
 
+
   const dotElements = coachesArr?.map((coach, key) => {
     const dotClass = `dot dot${key + 1} dot${key + 1 + coachesArr.length}`
     const idClass = key === 0 ? coachesArr?.length - 1 : key - 1;
@@ -135,6 +136,7 @@ const Carousel: React.FunctionComponent<ICarouselProps> = ({ coachesArr }) => {
       <div
         className="wrapper"
         ref={wrapperRef}
+        onClick={() => isPaused = true}
         onMouseEnter={mouseEnter}
         onMouseLeave={mouseLeave}
         onTouchStart={touchStart}
